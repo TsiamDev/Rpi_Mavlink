@@ -1,0 +1,26 @@
+NRF24L01 Pin	Raspberry Pi Zero Pin
+VCC (3.3V)	- 3.3V (Pin 1)
+GND	- GND (Pin 6)
+CE	- GPIO22 (Pin 15)
+CSN	- GPIO8 (SPI CE0, Pin 24)
+SCK	- GPIO11 (SPI CLK, Pin 23)
+MOSI - GPIO10 (SPI MOSI, Pin 19)
+MISO - GPIO9 (SPI MISO, Pin 21)
+IRQ (Optional)	- Any GPIO (e.g., GPIO4, Pin 7)
+
+----------------
+On the Pi run:
+
+sudo raspi-config
+# Interfacing Options > SPI > Enable
+sudo reboot
+
+//GPIO
+pip3 install spidev RPi.GPIO
+git clone https://github.com/nRF24/RF24.git
+cd RF24
+sudo make install
+
+//PYMAVLINK - Pyserial
+sudo apt update && sudo apt install python3-pip
+pip3 install pymavlink pyserial
